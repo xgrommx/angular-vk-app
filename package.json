@@ -1,0 +1,31 @@
+{
+  "name": "angular-vk-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xgrommx/angular-vk-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xgrommx/angular-vk-app/issues"
+  },
+  "homepage": "https://github.com/xgrommx/angular-vk-app",
+  "dependencies": {
+    "rx": "^2.3.8",
+    "rx-angular": "0.0.11"
+  },
+  "devDependencies": {
+    "exports-loader": "^0.6.2",
+    "gulp": "^3.8.7",
+    "gulp-webpack": "^0.3.0",
+    "traceur": "0.0.60",
+    "webpack": "^1.4.0-beta3",
+    "webpack-traceur-loader": "^0.3.0"
+  }
+}

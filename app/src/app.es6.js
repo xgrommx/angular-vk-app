@@ -1,4 +1,4 @@
-//import 'traceur-runtime';
+import 'traceur-runtime';
 import angular from 'angular';
 
 import './controllers/main.es6';

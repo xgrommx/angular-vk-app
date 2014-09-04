@@ -11,7 +11,7 @@ gulp.task("webpack", function() {
             watch: true,
             devtool: "#inline-source-map",
             resolve: {
-                modulesDirectories: ["./app/vendors", "node_modules"],
+                modulesDirectories: ["vendors", "node_modules"],
                 alias: {
                     "angular": "angular/angular.min.js",
                     // This hack due to Windows :D If you use Linux or mac you can commented code which located below.

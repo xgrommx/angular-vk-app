@@ -1,1 +1,1 @@
-<div user-list users="{{ f.friends }}"></div>
+<div user-list ng-if="f.friends" users="{{ f.friends | limitTo:10 }}"></div>

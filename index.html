@@ -13,16 +13,17 @@
         <div class="page-header">
             <h1>AngularJS and VK api together <small>:D</small></h1>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="list-group">
                 <a ui-sref="me" ui-sref-active="active" class="list-group-item active">
                     My Profile
+                    <img ng-src="{{m.user.photo}}" class="pull-right" style="width:20px;" />
                 </a>
                 <a ui-sref="friends" ui-sref-active="active" class="list-group-item"><span class="badge">{{ m.countFriends }}</span>Friends</a>
                 <a ui-sref="followers" ui-sref-active="active" class="list-group-item"><span class="badge">{{ m.countFollowers }}</span>Followers</a>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div ui-view></div>
         </div>
     </div>

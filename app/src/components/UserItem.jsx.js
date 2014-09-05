@@ -5,10 +5,10 @@
 import React from 'react';
 
 var UserItem = React.createClass({
-	render: function() {
+	render() {
 		return (<li className="list-group-item">
 					<div>
-						<img src={this.props.user.photo} />
+						<img src={this.props.user.photo_big} />
 					</div>
         			<div>{this.props.user.first_name}</div> 
         			<div>{this.props.user.last_name}</div>

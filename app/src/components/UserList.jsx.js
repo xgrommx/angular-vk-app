@@ -6,10 +6,9 @@ import UserItem from './UserItem.jsx';
 
 var UserList = React.createClass({
 
-	render: function() {
-		var userItems = this.props.users.map(function(user) {
-			return <UserItem user={user}/>;
-		});
+	render() {
+		var userItems = this.props.users.map(user => <UserItem user={user}/>);
+		
 		return <ul className="list-group">{userItems}</ul>;
 	}
 });

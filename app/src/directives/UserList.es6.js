@@ -9,6 +9,11 @@ var UserList = ($timeout) => ({
 	},
 	link: (scope, element, attributes) => {
 		var users = scope.$eval(scope.users);
+
+		attributes.$observe('users', users => {
+			console.log(users);
+		});
+
 		$timeout(() => {
 			React.renderComponent(UserListComponent({users: users}), element[0]);
 		}, 0);

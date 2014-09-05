@@ -8,9 +8,21 @@
     <script src="./app/dist/bundle.js"></script>
 </head>
 <body ng-app="app">
-    <div class="container">
-        <div ng-controller="MainCtrl as m">
-            <h1>Hello {{ m.user.first_name + " " + m.user.last_name }}</h1>
+    <div class="container" ng-controller="MainCtrl as m">
+        <div class="page-header">
+            <h1>AngularJS and VK api together <small>:D</small></h1>
+        </div>
+        <div class="col-md-4">
+            <div class="list-group">
+                <a ui-sref="me" ui-sref-active="active" class="list-group-item active">
+                    My Profile
+                </a>
+                <a ui-sref="friends" ui-sref-active="active" class="list-group-item"><span class="badge">{{ m.countFriends }}</span>Friends</a>
+                <a ui-sref="followers" ui-sref-active="active" class="list-group-item"><span class="badge">{{ m.countFollowers }}</span>Followers</a>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div ui-view></div>
         </div>
     </div>
 </body>

@@ -54,11 +54,11 @@ function VKApi() {
             var d = $q.defer();
 
             VK.api('users.get', {
-                uids: typeof uid === 'undefined' ? mid: uid,
+                user_ids: typeof uid === 'undefined' ? mid: uid.join(","),
                 fields: fields.join(',')
             }, response => {
                 if(response.response) {
-                    $timeout(() => d.resolve(response.response[0]), 0);
+                    $timeout(() => d.resolve(typeof uid !== 'undefined' ? response.response: response.response[0]), 0);
                 }
             });
 

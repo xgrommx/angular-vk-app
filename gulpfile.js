@@ -5,7 +5,7 @@ var gulpWebpack = require("gulp-webpack");
 gulp.task("webpack", function() {
     return gulp.src("./app/src/app.es6.js")
         .pipe(gulpWebpack({
-            cache: true,
+            cache: false,
             target: "web",
             debug: true,
             watch: true,
@@ -14,6 +14,7 @@ gulp.task("webpack", function() {
                 modulesDirectories: ["vendors", "node_modules"],
                 alias: {
                     "angular": "angular/angular.min.js",
+                    "ui-router": "angular-ui-router/release/angular-ui-router.js",
                     // This hack due to Windows :D If you use Linux or mac you can commented code which located below.
                     "traceur-runtime": "traceur/bin/traceur-runtime.js"
                 }

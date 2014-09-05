@@ -4,8 +4,12 @@ import 'ui-router';
 
 import './controllers/main.es6';
 import './services/main.es6';
+import './directives/main.es6';
 
-var app = angular.module('app', ['ui.router', 'app.controllers', 'app.services']);
+// React components
+// import UserList from 'webpack-traceur!jsx-loader!./components/UserList.jsx';
+
+var app = angular.module('app', ['ui.router', 'app.controllers', 'app.services', 'app.directives']);
 
 app.constant('fields', ['uid', 'first_name', 'last_name', 'nickname', 'sex',
     'birthdate', 'city', 'country', 'timezone', 'photo', 'photo_medium',

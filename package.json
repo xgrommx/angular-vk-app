@@ -24,6 +24,7 @@
     "exports-loader": "^0.6.2",
     "gulp": "^3.8.7",
     "gulp-webpack": "^0.3.0",
+    "jsx-loader": "^0.11.0",
     "traceur": "0.0.60",
     "webpack": "^1.4.0-beta3",
     "webpack-traceur-loader": "^0.3.0"

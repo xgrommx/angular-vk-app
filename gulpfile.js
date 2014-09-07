@@ -1,10 +1,47 @@
 var gulp = require("gulp");
 var webpack = require("webpack");
-var gulpWebpack = require("gulp-webpack");
+
+var $ = require('gulp-load-plugins')({
+    camelize: true
+});
+
+gulp.task('webserver', function() {
+	gulp.src(['./', '!./node_modules/**', '!./vendors/**'])
+		.pipe($.webserver({
+			livereload: true,
+			directoryListing: false,
+			open:false,
+			fallback: 'index.html'
+		}));
+});
+
+// gulp.task('connect', function () {
+//     $.connect.server({
+//         root: './',
+//         port: 8081,
+//         livereload: true
+//     });
+// });
+
+// gulp.task('html', function () {
+//     gulp.src('./*.html')
+//         .pipe($.connect.reload());
+//     $.util.log($.util.colors.green('Has been reloaded a html task'));
+// });
+
+// gulp.task('scripts', function () {
+//     return gulp.src('./app/dist/*.js')
+//         .pipe($.connect.reload());
+// });
+
+// gulp.task('watch', function() {
+//     gulp.watch(['./*.html'], ['html']);
+//     gulp.watch(['./app/dist/*.js'], ['scripts']);
+// });
 
 gulp.task("webpack", function() {
     return gulp.src("./app/src/app.es6.js")
-        .pipe(gulpWebpack({
+        .pipe($.webpack({
             cache: true,
             target: "web",
             debug: true,
@@ -15,6 +52,10 @@ gulp.task("webpack", function() {
                 alias: {
                     "angular": "angular/angular.min.js",
                     "ui-router": "angular-ui-router/release/angular-ui-router.min.js",
+                    "angular-animate": "angular-animate/angular-animate.min.js",
+                    "angular-messages": "angular-messages/angular-messages.min.js",
+                    "angular-breadcrumb": "angular-breadcrumb/dist/angular-breadcrumb.js",
+                    "jquery": "jquery/dist/jquery.min.js",
                     "react": "react/react.js",
                     // This hack due to Windows :D If you use Linux or mac you can commented code which located below.
                     "traceur-runtime": "traceur/bin/traceur-runtime.js"
@@ -40,4 +81,5 @@ gulp.task("webpack", function() {
         .pipe(gulp.dest('./app/dist/'));
 });
 
-gulp.task("default", ["webpack"]);
+// gulp.task("default", ["connect", "watch", "webpack"]);
+gulp.task("default", ["webserver", "webpack"]);

@@ -23,8 +23,15 @@
   "devDependencies": {
     "exports-loader": "^0.6.2",
     "gulp": "^3.8.7",
+    "gulp-connect": "^2.0.6",
+    "gulp-livereload": "^2.1.1",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-print": "^1.1.0",
+    "gulp-util": "^3.0.1",
     "gulp-webpack": "^0.3.0",
+    "gulp-webserver": "^0.7.2",
     "jsx-loader": "^0.11.0",
+    "run-sequence": "^0.3.6",
     "traceur": "0.0.60",
     "webpack": "^1.4.0-beta3",
     "webpack-traceur-loader": "^0.3.0"

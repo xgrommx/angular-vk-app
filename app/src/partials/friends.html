@@ -1,1 +1,10 @@
+<!--<ul class="list-group">-->
+    <!--<li class="list-group-item" ng-repeat="friend in f.friends">-->
+        <!--<div>-->
+            <!--<a ng-href="#/friends/detail/{{friend.uid}}"><img ng-src="{{friend.photo_big}}" /></a>-->
+        <!--</div>-->
+        <!--<div>{{friend.first_name}}</div>-->
+        <!--<div>{{friend.last_name}}</div>-->
+    <!--</li>-->
+<!--</ul>-->
 <div user-list ng-if="f.friends" users="{{ f.friends | limitTo:10 }}"></div>

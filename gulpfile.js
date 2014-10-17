@@ -44,7 +44,6 @@ gulp.task("webpack", function() {
                 loaders: [
                     {test: /angular.min.js$/, loader: "exports?angular"},
                     {test: /.es6.js$/, loader: '6to5-loader'},
-                    {test: /.jsx.js$/, loader: '6to5-loader'}
                 ]
             },
             output: {

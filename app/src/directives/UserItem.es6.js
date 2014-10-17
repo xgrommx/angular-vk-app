@@ -1,5 +1,5 @@
 import * as React from 'react';
-import UserItemComponent from '../components/UserItem.jsx';
+import UserItemComponent from '../components/UserItem.es6';
 
 var UserItem = ($timeout) => ({
 	restrict: "AE",

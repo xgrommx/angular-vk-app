@@ -1,6 +1,6 @@
 import * as React from 'react';
-import UserItemComponent from '../components/UserItem.jsx';
-import UserListComponent from '../components/UserList.jsx';
+import UserItemComponent from '../components/UserItem.es6';
+import UserListComponent from '../components/UserList.es6';
 
 var UserList = ($timeout) => ({
 	restrict: "AE",

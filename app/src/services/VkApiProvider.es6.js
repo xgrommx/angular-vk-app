@@ -12,100 +12,82 @@ function VKApi() {
             throw new Error("You forgot initialize settings in a config function");
         VK.init({ apiId: settings.apiId, apiVersion: settings.apiVersion });
 
-        var authenticate = () => {
-            var authenticate = {};
-            if(!authenticate.deferred) {
-                var deferred = $q.defer();
-
+        var authenticate = () => 
+            $q((resolve, reject) => {
                 VK.Auth.getLoginStatus(response => {
                     if(response.session) {
                         var mid = response.session.mid;
-                        $timeout(() => deferred.resolve(mid), 0);
+                        $timeout(() => resolve(mid), 0);
                     } else {
                         VK.Auth.login(response => $log.info(response, 'response'), 2 + 4 + 8 + 16);
                     }
                 });
-
-                authenticate.deferred = deferred;
-            }
-
-            return authenticate.deferred.promise;
-        };
+            });
 
         var getMid = () => authenticate().then(mid => mid);
 
-        var getSession = () => authenticate().then(mid => {
-            var d = $q.defer();
+        var getSession = () => authenticate().then(mid =>
+            $q((resolve, reject) => {
+                if(VK.Auth.getSession() != null) {
+                    var session = VK.Auth.getSession();
 
-            if(VK.Auth.getSession() != null) {
-                var session = VK.Auth.getSession();
-
-                if(session.mid === mid) {
-                    d.resolve(session);
-                } else {
-                    d.reject(new Error("This session does not correct for current user"));
+                    if(session.mid === mid) {
+                        resolve(session);
+                    } else {
+                        reject(new Error("This session does not correct for current user"));
+                    }
                 }
-            }
+            })
+        );
 
-            return d.promise;
-        });
-
-        var getUser = (fields, uid) => authenticate().then(mid => {
-            var d = $q.defer();
-
-            VK.api('users.get', {
-                user_ids: typeof uid === 'undefined' ? mid: uid.join(","),
-                fields: fields.join(',')
-            }, response => {
-                if(response.response) {
-                    $timeout(() => d.resolve(typeof uid !== 'undefined' ? response.response: response.response[0]), 0);
-                }
-            });
-
-            return d.promise;
-        });
+        var getUser = (fields, uid) => authenticate().then(mid =>
+            $q((resolve, reject) => {
+                VK.api('users.get', {
+                    user_ids: typeof uid === 'undefined' ? mid: uid.join(","),
+                    fields: fields.join(',')
+                }, response => {
+                    if(response.response) {
+                        $timeout(() => resolve(typeof uid !== 'undefined' ? response.response: response.response[0]), 0);
+                    }
+                });
+            })
+        );
 
         var getFollowers = params => authenticate().then(mid => {
-            var d = $q.defer();
-
             params = params || {};
             params.mid = mid;
 
-            VK.api('users.getFollowers', params, response => {
-                if(response.response) {
-                    $timeout(() => d.resolve(response.response), 0);
-                }
-            });
-
-            return d.promise;
+            return $q((resolve, reject) => {
+                VK.api('users.getFollowers', params, response => {
+                    if(response.response) {
+                        $timeout(() => resolve(response.response), 0);
+                    }
+                });    
+            })
         });
 
-        var getFriends = fields => authenticate().then(mid => {
-            var d = $q.defer();
+        var getFriends = fields => authenticate().then(mid =>
+            $q((resolve, reject) => {
+                VK.api('friends.get', {
+                    user_id: mid,
+                    fields: fields.join(',')
+                }, response => {
+                    if (response.response) {
+                        $timeout(() => resolve(response.response), 0);
+                    }
+                });
+            })
+        );
 
-            VK.api('friends.get', {
-                user_id: mid,
-                fields: fields.join(',')
-            }, response => {
-                if (response.response) {
-                    $timeout(() => d.resolve(response.response), 0);
-                }
-            });
-
-            return d.promise;
-        });
-
-        var photosSearch = (lat, long) => authenticate().then(mid => {
-            var d = $q.defer();
-
-            VK.api('photos.search', { lat, long }, (response) => {
-                if (response.response) {
-                    $timeout(() => d.resolve(response.response), 0);
-                }
-            });
-
-            return d.promise;
-        });
+        var photosSearch = (lat, long) => authenticate().then(mid =>
+            $q((resolve, reject) => {
+                VK.api('photos.search', { lat, long }, (response) => {
+                    if (response.response) {
+                        $timeout(() => resolve(response.response), 0);
+                    }
+                });
+            })
+        );
 
         return {
             authenticate,

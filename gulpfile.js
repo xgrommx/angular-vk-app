@@ -53,5 +53,4 @@ gulp.task("webpack", function() {
         .pipe(gulp.dest('./app/dist/'));
 });
 
-// gulp.task("default", ["connect", "watch", "webpack"]);
 gulp.task("default", ["webserver", "webpack"]);

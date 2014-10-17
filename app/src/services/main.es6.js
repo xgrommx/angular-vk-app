@@ -1,4 +1,4 @@
-import angular from 'angular';
+import * as angular from 'angular';
 import VkApiProvider from './VkApiProvider.es6';
 
 angular.module('app.services', [])

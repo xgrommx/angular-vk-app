@@ -1,7 +1,7 @@
 /**
  * @jsx React.DOM
  */
-import React from 'react';
+import * as React from 'react';
 import UserItem from './UserItem.jsx';
 
 var UserList = React.createClass({

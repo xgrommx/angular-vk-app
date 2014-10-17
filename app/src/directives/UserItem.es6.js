@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import UserItemComponent from '../components/UserItem.jsx';
 
 var UserItem = ($timeout) => ({

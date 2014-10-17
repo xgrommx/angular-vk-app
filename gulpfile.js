@@ -15,30 +15,6 @@ gulp.task('webserver', function() {
 		}));
 });
 
-// gulp.task('connect', function () {
-//     $.connect.server({
-//         root: './',
-//         port: 8081,
-//         livereload: true
-//     });
-// });
-
-// gulp.task('html', function () {
-//     gulp.src('./*.html')
-//         .pipe($.connect.reload());
-//     $.util.log($.util.colors.green('Has been reloaded a html task'));
-// });
-
-// gulp.task('scripts', function () {
-//     return gulp.src('./app/dist/*.js')
-//         .pipe($.connect.reload());
-// });
-
-// gulp.task('watch', function() {
-//     gulp.watch(['./*.html'], ['html']);
-//     gulp.watch(['./app/dist/*.js'], ['scripts']);
-// });
-
 gulp.task("webpack", function() {
     return gulp.src("./app/src/app.es6.js")
         .pipe($.webpack({
@@ -56,9 +32,7 @@ gulp.task("webpack", function() {
                     "angular-messages": "angular-messages/angular-messages.min.js",
                     "angular-breadcrumb": "angular-breadcrumb/dist/angular-breadcrumb.js",
                     "jquery": "jquery/dist/jquery.min.js",
-                    "react": "react/react.js",
-                    // This hack due to Windows :D If you use Linux or mac you can commented code which located below.
-                    "traceur-runtime": "traceur/bin/traceur-runtime.js"
+                    "react": "react/react.js"
                 }
             },
             plugins: [
@@ -69,9 +43,8 @@ gulp.task("webpack", function() {
             module: {
                 loaders: [
                     {test: /angular.min.js$/, loader: "exports?angular"},
-                    // If you use Linux you should use "loader: 'webpack-traceur?runtime'" instead of "loader: 'webpack-traceur'".
-                    {test: /.es6.js$/, loader: 'webpack-traceur'},
-                    {test: /.jsx.js$/, loader: 'webpack-traceur!jsx-loader?harmony'}
+                    {test: /.es6.js$/, loader: '6to5-loader'},
+                    {test: /.jsx.js$/, loader: '6to5-loader'}
                 ]
             },
             output: {

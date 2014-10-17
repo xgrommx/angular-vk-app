@@ -1,5 +1,4 @@
-import 'traceur-runtime';
-import angular from 'angular';
+import * as angular from 'angular';
 import 'angular-animate';
 import 'ui-router';
 import 'angular-breadcrumb';

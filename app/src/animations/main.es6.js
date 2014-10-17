@@ -1,5 +1,5 @@
-import angular from 'angular';
-import $ from 'jquery';
+import * as angular from 'angular';
+import * as $ from 'jquery';
 import 'angular-animate';
 
 angular.module('app.animations', [])

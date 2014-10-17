@@ -1,4 +1,4 @@
-import angular from 'angular';
+import * as angular from 'angular';
 import UserItem from './UserItem.es6';
 import UserList from './UserList.es6';
 

@@ -26,13 +26,13 @@ gulp.task("webpack", function() {
             resolve: {
                 modulesDirectories: ["vendors", "node_modules"],
                 alias: {
-                    "angular": "angular/angular.min.js",
-                    "ui-router": "angular-ui-router/release/angular-ui-router.min.js",
-                    "angular-animate": "angular-animate/angular-animate.min.js",
-                    "angular-messages": "angular-messages/angular-messages.min.js",
-                    "angular-breadcrumb": "angular-breadcrumb/dist/angular-breadcrumb.js",
-                    "jquery": "jquery/dist/jquery.min.js",
-                    "react": "react/react.js"
+                    "angular": "angular/angular.min",
+                    "ui-router": "angular-ui-router/release/angular-ui-router.min",
+                    "angular-animate": "angular-animate/angular-animate.min",
+                    "angular-messages": "angular-messages/angular-messages.min",
+                    "angular-breadcrumb": "angular-breadcrumb/dist/angular-breadcrumb.min",
+                    "jquery": "jquery/dist/jquery.min",
+                    "react": "react/react.min"
                 }
             },
             plugins: [

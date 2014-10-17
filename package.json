@@ -17,18 +17,18 @@
   },
   "homepage": "https://github.com/xgrommx/angular-vk-app",
   "dependencies": {
-    "rx": "^2.3.8",
-    "rx-angular": "0.0.11"
+    "rx": "latest",
+    "rx-angular": "latest"
   },
   "devDependencies": {
-    "6to5": "^1.9.7",
-    "6to5-loader": "^0.2.3",
-    "exports-loader": "^0.6.2",
-    "gulp": "^3.8.7",
-    "gulp-load-plugins": "^0.6.0",
-    "gulp-webpack": "^0.3.0",
-    "gulp-webserver": "^0.7.2",
-    "run-sequence": "^0.3.6",
-    "webpack": "^1.4.0-beta3"
+    "6to5": "latest",
+    "6to5-loader": "latest",
+    "exports-loader": "latest",
+    "gulp": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-webpack": "latest",
+    "gulp-webserver": "latest",
+    "run-sequence": "latest",
+    "webpack": "latest"
   }
 }

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/xgrommx/angular-vk-app",
   "dependencies": {
+    "lodash": "^2.4.1",
     "rx": "latest",
     "rx-angular": "latest"
   },

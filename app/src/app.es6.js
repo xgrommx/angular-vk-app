@@ -8,9 +8,6 @@ import './services/main.es6';
 import './directives/main.es6';
 import './animations/main.es6';
 
-// React components
-// import UserList from 'webpack-traceur!jsx-loader!./components/UserList.jsx';
-
 var app = angular.module('app', ['ui.router', 'ncy-angular-breadcrumb', 'ngAnimate', 'app.controllers', 'app.services', 'app.directives', 'app.animations']);
 
 app.constant('fields', ['uid', 'first_name', 'last_name', 'nickname', 'sex',
@@ -43,20 +40,6 @@ app.config(['VKApiProvider', VKApiProvider => {
             ncyBreadcrumbLabel: 'Friends page'
         }
     });
-    //.state('friends.detail', {
-    //    url: '/:id',
-    //    templateUrl: './app/src/partials/user-detail.html',
-    //    controller: 'UserDetailCtrl as u',
-    //    resolve: {
-    //        user: (friends, $stateParams) => {
-    //            console.log($stateParams.id);
-    //            return friends[0];
-    //        }
-    //    },
-    //    data: {
-    //        ncyBreadcrumbLabel: '{{user.first_name}}'
-    //    }
-    //});
     $stateProvider.state('followers', {
         url: '/followers',
         templateUrl: './app/src/partials/followers.html',

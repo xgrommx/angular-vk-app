@@ -98,10 +98,7 @@ function VKApi() {
         var photosSearch = (lat, long) => authenticate().then(mid => {
             var d = $q.defer();
 
-            VK.api('photos.search', {
-                lat: lat,
-                long: long
-            }, (response) => {
+            VK.api('photos.search', { lat, long }, (response) => {
                 if (response.response) {
                     $timeout(() => d.resolve(response.response), 0);
                 }
@@ -111,13 +108,13 @@ function VKApi() {
         });
 
         return {
-            authenticate: authenticate,
-            getMid: getMid,
-            getUser: getUser,
-            getSession: getSession,
-            getFollowers: getFollowers,
-            getFriends: getFriends,
-            photosSearch: photosSearch
+            authenticate,
+            getMid,
+            getUser,
+            getSession,
+            getFollowers,
+            getFriends,
+            photosSearch
         };
     }];
 }

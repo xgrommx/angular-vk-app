@@ -31,12 +31,12 @@ gulp.task("webpack", function() {
                     app: path.resolve('app', 'src'),
                     app$: 'app/app',
                     ngAnimate$: 'angular-animate',
-                    'ui.router': 'angular-ui-router/release/angular-ui-router',
-                    'ncy-angular-breadcrumb': 'angular-breadcrumb/dist/angular-breadcrumb',
-                    'app.controllers': 'app/controllers/main',
-                    'app.animations': 'app/animations/main',
-                    'app.directives': 'app/directives/main',
-                    'app.services': 'app/services/main'
+                    'ui.router$': 'angular-ui-router/release/angular-ui-router',
+                    'ncy-angular-breadcrumb$': 'angular-breadcrumb/dist/angular-breadcrumb',
+                    'app.controllers$': 'app/controllers/main',
+                    'app.animations$': 'app/animations/main',
+                    'app.directives$': 'app/directives/main',
+                    'app.services$': 'app/services/main'
                 }
             },
             plugins: [

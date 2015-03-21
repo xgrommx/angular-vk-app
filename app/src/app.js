@@ -1,13 +1,3 @@
-import * as angular from 'angular';
-import 'angular-animate';
-import 'ui-router';
-import 'angular-breadcrumb';
-
-import './controllers/main.es6';
-import './services/main.es6';
-import './directives/main.es6';
-import './animations/main.es6';
-
 var app = angular.module('app', ['ui.router', 'ncy-angular-breadcrumb', 'ngAnimate', 'app.controllers', 'app.services', 'app.directives', 'app.animations']);
 
 app.constant('fields', ['uid', 'first_name', 'last_name', 'nickname', 'sex',

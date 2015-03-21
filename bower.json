@@ -15,12 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "latest",
-    "angular-ui-router": "latest",
-    "react": "latest",
-    "angular-animate": "latest",
-    "angular-messages": "latest",
-    "jquery": "latest",
-    "angular-breadcrumb": "latest"
+
   }
 }

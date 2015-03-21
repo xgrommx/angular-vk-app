@@ -1,5 +1,4 @@
-import * as angular from 'angular';
-import VkApiProvider from './VkApiProvider.es6';
+import VkApiProvider from './VkApiProvider';
 
 angular.module('app.services', [])
     .factory('VK', ['$window', $window => angular.isDefined($window.VK) ? $window.VK : null])

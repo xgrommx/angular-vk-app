@@ -1,8 +1,5 @@
-/**
- * @jsx React.DOM
- */
-import * as React from 'react';
-import UserItem from './UserItem.es6';
+import React from 'react';
+import UserItem from './UserItemComponent';
 import { map } from 'lodash';
 
 var UserList = React.createClass({

@@ -1,6 +1,4 @@
-import * as angular from 'angular';
-import * as $ from 'jquery';
-import 'angular-animate';
+import $ from 'jquery';
 
 angular.module('app.animations', [])
        .animation('.view-animation', () => ({

@@ -1,8 +1,4 @@
-/**
-* @jsx React.DOM
-*/
-
-import * as React from 'react';
+import React from 'react';
 
 var UserItem = React.createClass({
 	render() {

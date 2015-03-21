@@ -1,5 +1,5 @@
-import * as React from 'react';
-import UserItemComponent from '../components/UserItem.es6';
+import React from 'react';
+import UserItemComponent from '../components/UserItemComponent';
 
 var UserItem = ($timeout) => ({
 	restrict: "AE",
@@ -9,7 +9,7 @@ var UserItem = ($timeout) => ({
 	link: (scope, element, attributes) => {
         attributes.$observe('user', user => {
             $timeout(() => {
-                React.renderComponent(UserItemComponent({user: angular.fromJson(user)}), element[0]);
+                React.render(React.createElement(UserItemComponent, {user: angular.fromJson(user)}), element[0]);
             }, 0);
         });
 	}

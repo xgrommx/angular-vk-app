@@ -1,8 +1,7 @@
-import * as angular from 'angular';
-import MainCtrl from './MainCtrl.es6';
-import FriendsCtrl from './FriendsCtrl.es6';
-import FollowersCtrl from './FollowersCtrl.es6';
-import UserDetailCtrl from './UserDetailCtrl.es6';
+import MainCtrl from './MainCtrl';
+import FriendsCtrl from './FriendsCtrl';
+import FollowersCtrl from './FollowersCtrl';
+import UserDetailCtrl from './UserDetailCtrl';
 
 angular.module('app.controllers', []).controller({
     'MainCtrl': ['$scope', 'VKApi', MainCtrl],

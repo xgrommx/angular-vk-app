@@ -1,4 +1,12 @@
-var app = angular.module('app', ['ui.router', 'ncy-angular-breadcrumb', 'ngAnimate', 'app.controllers', 'app.services', 'app.directives', 'app.animations']);
+var app = angular.module('app', [
+    'ui.router',
+    'ncy-angular-breadcrumb',
+    'ngAnimate',
+    'app.controllers',
+    'app.services',
+    'app.directives',
+    'app.animations']
+);
 
 app.constant('fields', ['uid', 'first_name', 'last_name', 'nickname', 'sex',
     'birthdate', 'city', 'country', 'timezone', 'photo', 'photo_medium',
@@ -15,8 +23,8 @@ app.config(['VKApiProvider', VKApiProvider => {
     $stateProvider.state('me', {
         url: '/me',
         templateUrl: './app/src/partials/me.html',
-        data: {
-            ncyBreadcrumbLabel: 'Home page'
+        ncyBreadcrumb: {
+            label: 'Home page'
         }
     });
     $stateProvider.state('friends', {
@@ -26,8 +34,8 @@ app.config(['VKApiProvider', VKApiProvider => {
         resolve: {
             friends: VKApi => VKApi.getFriends(fields)
         },
-        data: {
-            ncyBreadcrumbLabel: 'Friends page'
+        ncyBreadcrumb: {
+            label: 'Friends page'
         }
     });
     $stateProvider.state('followers', {
@@ -37,8 +45,8 @@ app.config(['VKApiProvider', VKApiProvider => {
         resolve: {
             followers: VKApi => VKApi.getFollowers().then(response => VKApi.getUser(fields, response.items))
         },
-        data: {
-            ncyBreadcrumbLabel: 'Followers page'
+        ncyBreadcrumb: {
+            label: 'Followers page'
         }
     })
 }]);

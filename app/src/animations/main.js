@@ -6,15 +6,11 @@ angular.module('app.animations', [])
                 $(element).css("display", "none");
                 $(element).fadeIn(2000, done);
 
-                return function() {
-                    $(element).stop();
-                }
+                return () => $(element).stop();
             },
             leave: (element, done) => {
                 $(element).css("display", "none");
 
-                return function() {
-                    $(element).stop();
-                }
+                return () => $(element).stop();
             }
     }));

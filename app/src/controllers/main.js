@@ -4,7 +4,7 @@ import FollowersCtrl from './FollowersCtrl';
 import UserDetailCtrl from './UserDetailCtrl';
 
 angular.module('app.controllers', []).controller({
-    'MainCtrl': ['$scope', 'VKApi', MainCtrl],
+    'MainCtrl': ['$scope', 'fields', 'VKApi', MainCtrl],
     'FriendsCtrl': ['$scope', 'friends', FriendsCtrl],
     'FollowersCtrl': ['$scope', 'followers', FollowersCtrl],
     'UserDetailCtrl': ['$scope', 'user', UserDetailCtrl]

@@ -4,3 +4,5 @@
 - npm install or npm i
 - bower install or bower i
 - gulp or gulp webpack
+
+###[A new version with more better functional available here](https://github.com/xgrommx/angular-vk-app/tree/babel)

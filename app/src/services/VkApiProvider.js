@@ -7,10 +7,10 @@ class VKApi {
 
     /*@ngInject*/
     $get($rootScope, $q, $log, $timeout, VK) {
-        if(typeof VK === "undefined")
-            throw new Error("You forgot include VK script");
-        if(typeof this.settings.apiId === "undefined" && typeof this.settings.apiVersion === "undefined")
-            throw new Error("You forgot initialize settings in a config function");
+        if(typeof VK === 'undefined')
+            throw new Error('You forgot include VK script');
+        if(typeof this.settings.apiId === 'undefined' && typeof this.settings.apiVersion === 'undefined')
+            throw new Error('You forgot initialize settings in a config function');
         VK.init({ apiId: this.settings.apiId, apiVersion: this.settings.apiVersion });
 
         var authenticate = () =>
@@ -35,7 +35,7 @@ class VKApi {
                         if(session.mid === mid) {
                             resolve(session);
                         } else {
-                            reject(new Error("This session does not correct for current user"));
+                            reject(new Error('This session does not correct for current user'));
                         }
                     }
                 })

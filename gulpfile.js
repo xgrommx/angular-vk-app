@@ -1,12 +1,16 @@
 var path = require('path');
-var gulp = require("gulp");
-var webpack = require("webpack");
+var gulp = require('gulp');
+var webpack = require('webpack');
 var AngularPlugin = require('angular-webpack-plugin');
 var NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 var $ = require('gulp-load-plugins')({
     camelize: true
 });
+
+var babelOptions = {
+    optional: ['es7.classProperties']
+};
 
 gulp.task('webserver', function() {
 	gulp.src(['./', '!./node_modules/**', '!./vendors/**'])
@@ -18,16 +22,16 @@ gulp.task('webserver', function() {
 		}));
 });
 
-gulp.task("webpack", function() {
-    return gulp.src("./app/src/app.js")
+gulp.task('webpack', function() {
+    return gulp.src('./app/src/app.js')
         .pipe($.webpack({
             cache: true,
-            target: "web",
+            target: 'web',
             debug: true,
             watch: true,
-            devtool: "#inline-source-map",
+            devtool: '#inline-source-map',
             resolve: {
-                modulesDirectories: ["node_modules"],
+                modulesDirectories: ['node_modules'],
                 alias: {
                     app: path.resolve('app', 'src'),
                     app$: 'app/app',
@@ -48,14 +52,14 @@ gulp.task("webpack", function() {
             ],
             module: {
                 loaders: [
-                    { test: /\.js$/, exclude: /node_modules/, loader: 'babel?stage=0'}
+                    { test: /\.js$/, exclude: /node_modules/, loader: ['babel', JSON.stringify(babelOptions)].join('?')}
                 ]
             },
             output: {
-                filename: "bundle.js"
+                filename: 'bundle.js'
             }
         }))
         .pipe(gulp.dest('./app/dist/'));
 });
 
-gulp.task("default", ["webserver", "webpack"]);
+gulp.task('default', ['webserver', 'webpack']);

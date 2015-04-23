@@ -2,5 +2,4 @@
 
 ####You need execute several commands: ####
 - npm install or npm i
-- bower install or bower i
 - gulp or gulp webpack

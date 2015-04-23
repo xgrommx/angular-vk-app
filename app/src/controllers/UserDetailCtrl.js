@@ -1,3 +1,4 @@
+/*@ngInject*/
 class UserDetailCtrl {
     constructor($scope, user) {
         var self = this;

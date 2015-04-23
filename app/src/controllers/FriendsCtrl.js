@@ -1,3 +1,4 @@
+/*@ngInject*/
 class FriendsCtrl {
     constructor($scope, friends) {
         var self = this;

@@ -12,12 +12,12 @@ app.constant('fields', ['uid', 'first_name', 'last_name', 'nickname', 'sex',
     'birthdate', 'city', 'country', 'timezone', 'photo', 'photo_medium',
     'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters']);
 
-app.config(['VKApiProvider', VKApiProvider => {
+app.config(VKApiProvider => {
     VKApiProvider.setSettings({
         apiId: 4150267,
         apiVersion: '5.10'
     });
-}]).config(['$stateProvider', '$urlRouterProvider', 'fields', ($stateProvider, $urlRouterProvider, fields) => {
+}).config(($stateProvider, $urlRouterProvider, fields) => {
     $urlRouterProvider.otherwise('/me');
 
     $stateProvider.state('me', {
@@ -49,4 +49,4 @@ app.config(['VKApiProvider', VKApiProvider => {
             label: 'Followers page'
         }
     })
-}]);
+});

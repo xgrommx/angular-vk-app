@@ -1,3 +1,4 @@
+/*@ngInject*/
 class MainCtrl {
     constructor($scope, fields, VKApi) {
         var self = this;

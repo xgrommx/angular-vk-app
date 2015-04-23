@@ -1,3 +1,4 @@
+/*@ngInject*/
 class FollowersCtrl {
     constructor($scope, followers) {
         var self = this;

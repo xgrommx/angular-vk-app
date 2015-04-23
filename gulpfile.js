@@ -2,6 +2,7 @@ var path = require('path');
 var gulp = require("gulp");
 var webpack = require("webpack");
 var AngularPlugin = require('angular-webpack-plugin');
+var NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 var $ = require('gulp-load-plugins')({
     camelize: true
@@ -26,7 +27,7 @@ gulp.task("webpack", function() {
             watch: true,
             devtool: "#inline-source-map",
             resolve: {
-                modulesDirectories: ["node_modules", "vendors"],
+                modulesDirectories: ["node_modules"],
                 alias: {
                     app: path.resolve('app', 'src'),
                     app$: 'app/app',
@@ -40,11 +41,14 @@ gulp.task("webpack", function() {
                 }
             },
             plugins: [
-                new AngularPlugin()
+                new AngularPlugin(),
+                new NgAnnotatePlugin({
+                    add: true
+                })
             ],
             module: {
                 loaders: [
-                    { test: /\.js$/, exclude: /node_modules/, loader: 'babel'}
+                    { test: /\.js$/, exclude: /node_modules/, loader: 'babel?stage=0'}
                 ]
             },
             output: {

@@ -37,6 +37,7 @@
     "gulp-load-plugins": "latest",
     "gulp-webpack": "latest",
     "gulp-webserver": "latest",
+    "ng-annotate-webpack-plugin": "^0.1.2",
     "run-sequence": "latest",
     "webpack": "latest"
   }

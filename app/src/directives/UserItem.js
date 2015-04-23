@@ -1,6 +1,7 @@
 import React from 'react';
 import UserItemComponent from '../components/UserItemComponent';
 
+/*@ngInject*/
 var UserItem = ($timeout) => ({
 	restrict: "AE",
 	scope: {

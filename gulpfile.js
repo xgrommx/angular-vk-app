@@ -8,10 +8,6 @@ var $ = require('gulp-load-plugins')({
     camelize: true
 });
 
-var babelOptions = {
-    optional: ['es7.classProperties']
-};
-
 gulp.task('webserver', function() {
 	gulp.src(['./', '!./node_modules/**', '!./vendors/**'])
 		.pipe($.webserver({
@@ -52,7 +48,7 @@ gulp.task('webpack', function() {
             ],
             module: {
                 loaders: [
-                    { test: /\.js$/, exclude: /node_modules/, loader: ['babel', JSON.stringify(babelOptions)].join('?')}
+                    { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
                 ]
             },
             output: {

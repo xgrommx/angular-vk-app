@@ -1,26 +1,27 @@
-var path = require('path');
-var gulp = require('gulp');
-var webpack = require('webpack');
-var AngularPlugin = require('angular-webpack-plugin');
-var NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
+import path from 'path';
+import gulp from 'gulp';
+import webpack from 'webpack-stream';
+import AngularPlugin from 'angular-webpack-plugin';
+import NgAnnotatePlugin from 'ng-annotate-webpack-plugin';
+import gulpLoadPlugins from 'gulp-load-plugins';
 
-var $ = require('gulp-load-plugins')({
+const $ = gulpLoadPlugins({
     camelize: true
 });
 
-gulp.task('webserver', function() {
+gulp.task('webserver', () =>
 	gulp.src(['./', '!./node_modules/**', '!./vendors/**'])
 		.pipe($.webserver({
 			livereload: true,
 			directoryListing: false,
 			open:false,
 			fallback: 'index.html'
-		}));
-});
+		}))
+);
 
-gulp.task('webpack', function() {
-    return gulp.src('./app/src/app.js')
-        .pipe($.webpack({
+gulp.task('webpack', () =>
+    gulp.src('./app/src/app.js')
+        .pipe(webpack({
             cache: true,
             target: 'web',
             debug: true,
@@ -55,7 +56,7 @@ gulp.task('webpack', function() {
                 filename: 'bundle.js'
             }
         }))
-        .pipe(gulp.dest('./app/dist/'));
-});
+        .pipe(gulp.dest('./app/dist/'))
+);
 
 gulp.task('default', ['webserver', 'webpack']);

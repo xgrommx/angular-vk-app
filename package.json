@@ -35,10 +35,10 @@
     "exports-loader": "latest",
     "gulp": "latest",
     "gulp-load-plugins": "latest",
-    "gulp-webpack": "latest",
     "gulp-webserver": "latest",
     "ng-annotate-webpack-plugin": "^0.1.2",
     "run-sequence": "latest",
-    "webpack": "latest"
+    "webpack": "latest",
+    "webpack-stream": "^2.0.0"
   }
 }

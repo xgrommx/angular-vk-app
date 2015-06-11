@@ -8,7 +8,7 @@ var UserList = ($timeout) => ({
 	scope: {
 		users: '@'
 	},
-	link: (scope, element, attributes) => {
+	link(scope, element, attributes) {
 		attributes.$observe('users', users => {
             $timeout(() => {
                 React.render(<UserListComponent users={ angular.fromJson(users) } />, element[0]);
